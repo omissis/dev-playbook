@@ -5,70 +5,95 @@ configure_dotfiles: yes
 configure_sudoers: yes
 configure_terminal: yes
 
-dotfiles_repo: https://github.com/geerlingguy/dotfiles.git
+dotfiles_repo: https://github.com/omissis/dotfiles.git
 dotfiles_repo_accept_hostkey: yes
 dotfiles_repo_local_destination: ~/Projects/GitHub/dotfiles
 dotfiles_files:
-  - .bash_profile
+  - .aliases
+  - .gitconfig
   - .gitignore
   - .inputrc
   - .vimrc
+  - .zshrc
 
 apt_packages:
   ## CLI Applications
+  - apt-transport-https
   - autoconf
   - bash-completion
-  #- bat
+  - bcmwl-kernel-source
   - ctop
-  - docker.io
   - docker-compose
+  - docker.io
   - git
   - gitk
+  - gnupg2
   - golang
   - htop
-  #- mkcert
+  - libnss3-tools
   - mysql-client
   - nmap
   - nodejs
-  #- ssh-copy-id
   - openssh-client
-  - readline-common
   - openssl
   - packer
+  - procps
   - pv
-  #- terraform
+  - readline-common
+  - software-properties-common
   - tig
   - tree
-  - procps
-  
+  - vim
+  - zsh
+
   ## GUI Applications 
-  #- 1password
-  #- appcode
-  #- battle-net
-  #- dash
-  #- datagrip
-  - firefox
-  #- gitify
+  #- 1passwordX
+  #- gitify # https://www.gitify.io/
+  - albert
   - chromium-browser
-  #- intellij
-  #- java
-  - mysql-workbench
-  #- phpstorm
-  #- postman
-  #- pycharm
-  #- skype
-  #- slack
-  #- spotify
-  #- steam
-  #- sublime-text
+  - copyq
+  - guake
+  - steam-installer
   - telegram-desktop
   - vagrant
   - virtualbox
-  - virtualbox-ext-pack
-  #- visual-studio-code
-  #- vlc
-  #- whatsapp
   - wireshark
+
+apt_repositories:
+  - repo: 'deb https://download.virtualbox.org/virtualbox/debian bionic contrib'
+    key: 'https://www.virtualbox.org/download/oracle_vbox_2016.asc'
+  - repo: 'deb http://jetbrains-ppa.s3-website.eu-central-1.amazonaws.com bionic main'
+    key: 'https://s3.eu-central-1.amazonaws.com/jetbrains-ppa/0xA6E8698A.pub.asc'
+  - repo: 'deb http://download.opensuse.org/repositories/home:/manuelschneid3r/xUbuntu_20.04/ /'
+    key: 'https://download.opensuse.org/repositories/home:manuelschneid3r/xUbuntu_20.04/Release.key'
+  - repo: 'ppa:hluk/copyq'
+
+snap_packages:
+  - 1password
+  - mysql-workbench-community
+  - postman
+  - spotify
+  - vlc
+  - whatsdesk
+
+snap_classic_packages:
+  - code
+  - skype
+  - slack
+  - sublime-text
+
+# manual installations
+# - [ ] Browser extensions (1PasswordX)
+# - [ ] JetBrains Products
+# - [ ] Hashicorp Products (Terraform, Vagrant, Packer)
+# - [ ] mkcert, oh-my-zsh, oh-my-zsh plugins
+# - [ ] kinto.sh
+# - [ ] linux brew
+# - [ ] zsh plugins
+#   - [ ] git clone https://github.com/unixorn/git-extra-commands.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/git-extra-commands
+#   - [ ] git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting
+#   - [ ] git clone git@github.com:zsh-users/zsh-history-substring-search.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-history-substring-search
+#   - [ ] git clone git@github.com:zsh-users/zsh-autosuggestions.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
 
 # Install packages from other package managers.
 # Note: You are responsible for making sure the required package managers are

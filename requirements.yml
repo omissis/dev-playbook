@@ -1,2 +1,8 @@
 ---
-- name: geerlingguy.dotfiles
+roles:
+- geerlingguy.dotfiles
+
+collections:
+  - name: community.general
+    version: 0.9.3
+    source: https://galaxy.ansible.com

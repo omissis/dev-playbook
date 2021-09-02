@@ -22,6 +22,9 @@
     - include_tasks: tasks/apt.yml
       tags: ['apt']
 
+    - include_tasks: tasks/snap.yml
+      tags: ['snap']
+
     - include_tasks: tasks/extra-packages.yml
       tags: ['extra-packages']
 

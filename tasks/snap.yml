@@ -1,0 +1,9 @@
+- name: Install snap packages.
+  snap:
+    name: "{{ item.name | default(item) }}"
+  with_items: "{{ snap_packages }}"
+
+- name: Install classic snap packages.
+  snap:
+    name: "{{ item.name | default(item) }}"
+  with_items: "{{ snap_classic_packages }}"

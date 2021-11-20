@@ -2,8 +2,8 @@
 
 # Setup direnv as per https://blog.sighup.io/manage-tools-with-ease-direnv-asdf/
 
-- name: Setup direnv
-  command: 
+- name: Allow direnv execution in home directory
+  command:
     cmd: "{{ asdf_bin }} exec direnv allow"
     chdir: "{{ lookup('env','HOME') }}"
   become: false

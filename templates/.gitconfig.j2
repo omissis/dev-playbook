@@ -16,3 +16,8 @@
 {% if git_github_token is defined %}
    token = {{ git_github_token }}
 {% endif %}
+
+{% for url in git_urls %}
+[url "ssh://git@{{ url }}"]
+    insteadOf = https://{{ url }}
+{% endfor %}

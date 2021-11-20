@@ -2,4 +2,6 @@
 .DS_Store
 *.retry
 roles*
-config.yml
+secrets.yml
+tasks/extra
+!tasks/extra/.gitkeep

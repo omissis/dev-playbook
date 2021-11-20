@@ -1,0 +1,18 @@
+[user]
+{% if git_user_name is defined %}
+    name = {{ git_user_name }}
+{% endif %}
+{% if git_user_email is defined %}
+    email = {{ git_user_email }}
+{% endif %}
+{% if git_user_signinkey is defined %}
+    signinkey = {{ git_user_signinkey }}
+{% endif %}
+
+[github]
+{% if git_github_user is defined %}
+    user = {{ git_github_user }}
+{% endif %}
+{% if git_github_token is defined %}
+   token = {{ git_github_token }}
+{% endif %}

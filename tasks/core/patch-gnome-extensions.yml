@@ -1,0 +1,9 @@
+---
+
+- name: Patch installed gnome extensions to add support to the desired gnome version.
+  shell: 
+    cmd: |
+      find . -name metadata.json -type f | \
+        xargs -I {} sh -c 'jq ".\"shell-version\"=[\"{{ gnome_version }}\"]" {} > {}.tmp && mv {}.tmp {}'
+    chdir: "{{ gnome_extensions_path }}"
+  when: gnome_extensions_patch_enable

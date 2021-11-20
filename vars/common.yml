@@ -1,0 +1,87 @@
+---
+downloads: ~/.ansible-downloads/
+
+configure_dotfiles: yes
+configure_sudoers: yes
+configure_terminal: yes
+
+dotfiles_home: "~"
+dotfiles_repo_accept_hostkey: yes
+dotfiles_repo_local_destination: ~/Projects/dotfiles
+dotfiles_repo_version: main
+dotfiles_repo: https://github.com/omissis/dotfiles.git
+dotfiles_files:
+  - .aliases
+  - .gitignore
+  - .inputrc
+  - .vimrc
+  - .zshrc
+  # .gitconfig has a dedicated task as it needs to deploy two files,
+  # one of which containing sensitive informations that cannot live in a public repository.
+
+bashrc_path: "{{ lookup('env','HOME') }}/.bashrc"
+zshrc_path: "{{ lookup('env','HOME') }}/.zshrc"
+
+# Install packages from other package managers.
+# Note: You are responsible for making sure the required package managers are
+# installed, eg. through homebrew.
+git_packages:
+  - repo: https://github.com/unixorn/git-extra-commands.git
+    dest: "{{ zsh_location }}/plugins/git-extra-commands"
+  - repo: https://github.com/zsh-users/zsh-syntax-highlighting.git
+    dest: "{{ zsh_location }}/plugins/zsh-syntax-highlighting"
+  - repo: https://github.com/zsh-users/zsh-history-substring-search.git
+    dest: "{{ zsh_location }}/plugins/zsh-history-substring-search"
+  - repo: https://github.com/zsh-users/zsh-autosuggestions.git
+    dest: "{{ zsh_location }}/plugins/zsh-autosuggestions"
+  - repo: https://github.com/powerline/fonts.git
+    dest: "{{ lookup('env','HOME') }}/Projects/powerline-fonts"
+  - repo: https://github.com/asdf-vm/asdf.git
+    dest: "{{ lookup('env', 'HOME') }}/.asdf"
+
+direnv_version: 2.28.0
+asdf_bin: "{{ lookup('env','HOME') }}/.asdf/bin/asdf"
+
+asdf_plugins:
+  - name: direnv
+    versions: ["{{ direnv_version }}"]
+    global: "{{ direnv_version }}"
+
+composer_packages: []
+  # - name: drush
+  #   state: present # present/absent, default: present
+  #   version: "^8.1" # default: N/A
+
+gem_packages: []
+  # - name: bundler
+  #   state: present # present/absent/latest, default: present
+  #   version: "~> 1.15.1" # default: N/A
+
+npm_packages:
+  - name: webpack
+    state: present
+    version: "v5.64.1"
+  - name: webpack-cli
+    state: present
+    version: "v4.9.1"
+
+pip_packages: []
+  # - name: mkdocs
+  #   state: present # present/absent/latest, default: present
+  #   version: "0.16.3" # default: N/A
+
+gnome_version: "41"
+gnome_extensions_path: /usr/share/gnome-shell/extensions
+gnome_extensions_patch_enable: false
+
+# Glob pattern to ansible task files to run after all other tasks are finished.
+post_provision_tasks: []
+
+# Glob pattern to ansible task files to run after all other tasks are finished.
+post_provision_cmds:
+  - cmd: "./install.sh"
+    dir: "{{ lookup('env','HOME') }}/Projects/powerline-fonts"
+
+# manual_installations:
+# - Browser extensions (1PasswordX, jsonviewer)
+# - Visual Studio Code extensions and configs

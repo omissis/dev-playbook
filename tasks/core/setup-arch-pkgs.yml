@@ -1,0 +1,8 @@
+---
+- name: Install yay packages.
+  aur:
+    name: "{{ item.name | default(item) }}"
+    state: "{{ item.state | default('present') }}"
+    use: yay
+  with_items: "{{ yay_packages }}"
+  become: no

@@ -1,0 +1,43 @@
+---
+
+# see: https://github.com/cimon-io/ansible-role-asdf
+
+- name: "install plugins"
+  become: false
+  command: "bash -lc '{{ asdf_bin }} plugin add {{ item.name }} {{ item.repository | default() }}'"
+  args:
+    creates: "{{ lookup('env','HOME') }}/.asdf/plugins/{{ item.name }}"
+    chdir: "{{ lookup('env','HOME') }}"
+  with_items: "{{ asdf_plugins }}"
+  when: asdf_plugins|length > 0
+  ignore_errors: true
+
+- name: "install apps"
+  become: false
+  command: "bash -lc '{{ asdf_bin }} install {{ item.0.name }} {{ item.1 }}'"
+  args:
+    creates: "{{ lookup('env','HOME') }}/.asdf/installs/{{ item.0.name }}/{{ item.1 }}"
+    chdir: "{{ lookup('env','HOME') }}"
+  with_subelements:
+    - "{{ asdf_plugins }}"
+    - versions
+    - flags:
+        skip_missing: true
+  when: asdf_plugins|length > 0
+
+- name: "set global app versions"
+  become: false
+  command: "bash -lc '{{ asdf_bin }} global {{ item.name }} {{ item.global | default(item.versions | difference(item.delete_versions|default([])) | sort | first) }}'"
+  args:
+    chdir: "{{ lookup('env','HOME') }}"
+  when: item.versions is defined
+  with_items: "{{ asdf_plugins }}"
+
+- name: "reshim packages"
+  become: false
+  command: "bash -lc '{{ asdf_bin }} reshim {{ item.name }}'"
+  args:
+    chdir: "{{ lookup('env','HOME') }}"
+  with_items: "{{ asdf_plugins }}"
+  when: asdf_plugins|length > 0
+

@@ -1,4 +1,11 @@
 ---
+- name: Install git packages.
+  git:
+    repo: "{{ item.repo }}"
+    dest: "{{ item.dest }}"
+    version: "{{ item.version | default('HEAD')}}"
+  with_items: "{{ git_packages }}"
+
 - name: Install global Composer packages.
   composer:
     command: "{{ (item.state | default('present') == 'absent') | ternary('remove', 'require') }}"

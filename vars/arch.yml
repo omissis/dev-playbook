@@ -1,0 +1,68 @@
+yay_packages:
+  ## CLI Applications
+  - 1password-cli
+  - autoconf
+  - bash-completion
+  - ctop
+  - docker
+  - docker-compose
+  - fzf
+  - gnupg
+  - htop
+  - jq
+  - mariadb-clients
+  - mpv
+  - nmap
+  - npm
+  - oh-my-zsh-git
+  - openssh
+  - openssl
+  - procps-ng
+  - readline
+  - termshark
+  - tig
+  - tree
+  - vim
+  - wireshark-cli
+  - yq
+  - zsh
+  - zsh-autosuggestions
+  - zsh-history-substring-search
+  - zsh-syntax-highlighting
+  ## GUI Applications
+  - 1password
+  - chromium
+  - font-manager
+  - gitify-bin
+  - guake
+  - mysql-workbench
+  - postman-bin
+  - skypeforlinux-stable-bin
+  - slack-desktop
+  - spotify
+  - sublime-merge
+  - sublime-text-4
+  - telegram-desktop
+  - virtualbox
+  - visual-studio-code-bin
+  - vlc
+  - whatsdesk-bin
+  - wireshark-qt
+  # Gnome Extensions
+  - gnome-shell-extension-bluetooth-quick-connect
+  - gnome-shell-extension-clipboard-indicator
+  - gnome-shell-extension-dash-to-dock
+  - gnome-shell-extension-desktop-icons-ng
+  - gnome-shell-extension-docker-integration-git
+  - gnome-shell-extension-gnome-ui-tune-git
+  - gnome-shell-extension-gtile
+  - gnome-shell-extension-notification-center-git
+  - gnome-shell-extension-sound-output-device-chooser
+  - gnome-shell-extension-tray-icons-reloaded
+  # Fonts
+  - noto-fonts-cjk
+  - noto-fonts-emoji 
+  - noto-fonts-extra 
+  - ttf-jetbrains-mono
+
+zsh_location: /usr/share/oh-my-zsh

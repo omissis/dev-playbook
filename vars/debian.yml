@@ -1,0 +1,67 @@
+apt_packages:
+  ## CLI Applications
+  - apt-transport-https
+  - autoconf
+  - bash-completion
+  - bcmwl-kernel-source
+  - ctop
+  - docker-compose
+  - docker.io
+  - git
+  - gitk
+  - gnupg2
+  - golang
+  - htop
+  - libnss3-tools
+  - mysql-client
+  - nmap
+  - nodejs
+  - openssh-client
+  - openssl
+  - packer
+  - procps
+  - pv
+  - readline-common
+  - software-properties-common
+  - tig
+  - tree
+  - vim
+  - zsh
+
+  ## GUI Applications 
+  #- 1passwordX
+  #- gitify # https://www.gitify.io/
+  - albert
+  - chromium-browser
+  - copyq
+  - guake
+  - steam-installer
+  - telegram-desktop
+  - vagrant
+  - virtualbox
+  - wireshark
+
+apt_repositories:
+  - repo: 'deb https://download.virtualbox.org/virtualbox/debian bionic contrib'
+    key: 'https://www.virtualbox.org/download/oracle_vbox_2016.asc'
+  - repo: 'deb http://jetbrains-ppa.s3-website.eu-central-1.amazonaws.com bionic main'
+    key: 'https://s3.eu-central-1.amazonaws.com/jetbrains-ppa/0xA6E8698A.pub.asc'
+  - repo: 'deb http://download.opensuse.org/repositories/home:/manuelschneid3r/xUbuntu_20.04/ /'
+    key: 'https://download.opensuse.org/repositories/home:manuelschneid3r/xUbuntu_20.04/Release.key'
+  - repo: 'ppa:hluk/copyq'
+
+snap_packages:
+  - 1password
+  - mysql-workbench-community
+  - postman
+  - spotify
+  - vlc
+  - whatsdesk
+
+snap_classic_packages:
+  - code
+  - skype
+  - slack
+  - sublime-text
+
+zsh_location: "~/.oh-my-zsh"

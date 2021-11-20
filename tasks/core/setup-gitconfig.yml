@@ -1,0 +1,12 @@
+---
+- name: Install system-wide gitconfig.
+  copy:
+    src: "{{ dotfiles_repo_local_destination }}/.gitconfig"
+    dest: "/etc/gitconfig"
+
+- name: Install user's gitconfig.
+  template:
+    src: ".gitconfig.j2"
+    dest: "{{ dotfiles_home }}/.gitconfig"
+    backup: yes
+  become: false

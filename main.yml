@@ -1,35 +1,84 @@
 ---
 - hosts: all
   connection: local
-
-  vars_files:
-    - default.config.yml
-
-  pre_tasks:
-    - include_vars: "{{ item }}"
-      with_fileglob:
-        - ../config.yml
-      tags: ['always']
+  become: yes
 
   roles:
+    - role: luizgavalda.aur
+      when: ansible_os_family == "Archlinux"
+      tags: ["arch"]
     - role: geerlingguy.dotfiles
-      when: configure_dotfiles
-      tags: ['dotfiles']
+      tags: ["arch", "debian"]
+
+  pre_tasks:
+    - name: Include common variables
+      include_vars: vars/common.yml
+      tags: ["arch", "debian"]
+
+    - name: Include Debian-related variables
+      include_vars: vars/debian.yml
+      when: ansible_os_family == "Debian"
+      tags: ["debian"]
+
+    - name: include Arch-related variables
+      include_vars: vars/arch.yml
+      when: ansible_os_family == "Archlinux"
+      tags: ["arch"]
+
+    - name: include secret variables
+      include_vars: vars/secrets.yml
+      tags: ["arch", "debian"]
 
   tasks:
-    - include_tasks: tasks/ansible-setup.yml
+    - name: Setup gitconfig
+      include_tasks: tasks/core/setup-gitconfig.yml
+      tags: ["arch", "debian"]
 
-    - include_tasks: tasks/apt.yml
-      tags: ['apt']
+    - name: Make sure ansible is set for execution
+      include_tasks: tasks/core/setup-ansible.yml
+      tags: ["arch", "debian"]
 
-    - include_tasks: tasks/snap.yml
-      tags: ['snap']
+    - name: Install debian packages
+      include_tasks: tasks/core/setup-debian-pkgs.yml
+      when: ansible_os_family == "Debian"
+      tags: ["debian"]
 
-    - include_tasks: tasks/extra-packages.yml
-      tags: ['extra-packages']
+    - name: Install arch packages
+      include_tasks: tasks/core/setup-arch-pkgs.yml
+      when: ansible_os_family == "Archlinux"
+      tags: ["arch"]
+
+    - name: Install extra packages
+      include_tasks: tasks/core/setup-extra-pkgs.yml
+      tags: ["arch", "debian"]
+
+    - name: Setup asdf
+      include_tasks: tasks/core/setup-asdf.yml
+      tags: ["arch", "debian"]
+
+    - name: Setup asdf packages
+      include_tasks: tasks/core/setup-asdf-pkgs.yml
+      tags: ["arch", "debian"]
+
+    - name: Setup direnv
+      include_tasks: tasks/core/setup-direnv.yml
+      tags: ["arch", "debian"]
+
+    - name: Patch Gnome extensions
+      include_tasks: tasks/core/patch-gnome-extensions.yml
+      tags: ["arch", "debian"]
 
     - name: Run configured post-provision ansible task files.
       include_tasks: "{{ outer_item }}"
       loop_control:
         loop_var: outer_item
       with_fileglob: "{{ post_provision_tasks|default(omit) }}"
+
+    # TODO: Add lockfile to prevent multiple runs
+    - name: Run configured post-provision commands
+      command:
+        cmd: "{{ item.cmd }}"
+        chdir: "{{ item.dir }}"
+      become: "{{ item.become | default('no') }}"
+      with_items: "{{ post_provision_cmds }}"
+      tags: ["arch", "debian"]

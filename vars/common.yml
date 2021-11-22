@@ -64,6 +64,12 @@ npm_packages:
   - name: webpack-cli
     state: present
     version: "v4.9.1"
+  - name: expo-cli
+    state: present
+    version: "4.13.0"
+  - name: yarn
+    state: present
+    version: "1.22.17"
 
 pip_packages: []
   # - name: mkdocs

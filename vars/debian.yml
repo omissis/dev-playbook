@@ -28,9 +28,8 @@ apt_packages:
   - vim
   - zsh
 
-  ## GUI Applications 
+  ## GUI Applications
   #- 1passwordX
-  #- gitify # https://www.gitify.io/
   - albert
   - chromium-browser
   - copyq

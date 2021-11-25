@@ -33,8 +33,10 @@ yay_packages:
   - 1password
   - chromium
   - font-manager
+  - gimp
   - gitify-bin
   - guake
+  - mongodb-compass
   - mysql-workbench
   - postman-bin
   - skypeforlinux-stable-bin

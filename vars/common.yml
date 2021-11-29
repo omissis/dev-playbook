@@ -14,6 +14,7 @@ dotfiles_files:
   - .aliases
   - .gitignore
   - .inputrc
+  - .tmux.conf
   - .vimrc
   - .zshrc
   # .gitconfig has a dedicated task as it needs to deploy two files,

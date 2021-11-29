@@ -24,11 +24,15 @@ yay_packages:
   - termshark
   - tig
   - tree
+  - tmux
+  - tmuxinator
+  - tmux-plugin-manager
   - vim
   - wireshark-cli
   - xdg-desktop-portal
   - xdg-desktop-portal-gnome
   - xdg-desktop-portal-gtk
+  - xsel
   - yq
   - zsh
   - zsh-autosuggestions

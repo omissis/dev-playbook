@@ -2,11 +2,13 @@ yay_packages:
   ## CLI Applications
   - 1password-cli
   - autoconf
+  - aws-cli
   - bash-completion
   - ctop
   - docker
   - docker-compose
   - fzf
+  - github-cli
   - gnupg
   - htop
   - jq
@@ -24,6 +26,9 @@ yay_packages:
   - tree
   - vim
   - wireshark-cli
+  - xdg-desktop-portal
+  - xdg-desktop-portal-gnome
+  - xdg-desktop-portal-gtk
   - yq
   - zsh
   - zsh-autosuggestions

@@ -22,6 +22,7 @@
     global: yes
     executable: "{{ item.executable | default(omit) }}"
   with_items: "{{ npm_packages }}"
+  become: no
 
 - name: Install global Pip packages.
   pip:

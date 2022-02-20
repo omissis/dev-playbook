@@ -4,6 +4,13 @@
     src: "{{ dotfiles_repo_local_destination }}/.gitconfig"
     dest: "/etc/gitconfig"
 
+- name: Install system-wide gitconfig for homebrew-installed git.
+  copy:
+    src: "{{ dotfiles_repo_local_destination }}/.gitconfig"
+    dest: "/opt/homebrew/etc/gitconfig"
+  when: ansible_os_family == "Darwin"
+
+
 - name: Install user's gitconfig.
   template:
     src: ".gitconfig.j2"

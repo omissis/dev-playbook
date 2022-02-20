@@ -14,6 +14,7 @@ dotfiles_files:
   - .aliases
   - .gitignore
   - .inputrc
+  - .osx # TODO: copy only on macos
   - .tmux.conf
   - .vimrc
   - .zshrc
@@ -40,13 +41,49 @@ git_packages:
   - repo: https://github.com/asdf-vm/asdf.git
     dest: "{{ lookup('env', 'HOME') }}/.asdf"
 
-direnv_version: 2.28.0
+direnv_version: 2.30.3
 asdf_bin: "{{ lookup('env','HOME') }}/.asdf/bin/asdf"
 
 asdf_plugins:
   - name: direnv
     versions: ["{{ direnv_version }}"]
     global: "{{ direnv_version }}"
+  - name: ctlptl
+    versions: ["0.7.5"]
+    global: "0.7.5"
+  - name: golang
+    versions: ["1.17.7"]
+    global: "1.17.7"
+  - name: gomigrate
+    versions: ["4.15.1"]
+    global: "4.15.1"
+  - name: helm
+    versions: ["3.8.0"]
+    global: "3.8.0"
+  - name: k9s
+    versions: ["0.25.18"]
+    global: "0.25.18"
+  - name: kind
+    versions: ["0.11.1"]
+    global: "0.11.1"
+  - name: krew
+    versions: ["0.4.3"]
+    global: "0.4.3"
+  - name: kustomize
+    versions: ["4.5.2"]
+    global: "4.5.2"
+  - name: nodejs
+    versions: ["16.14.0"]
+    global: "16.14.0"
+  - name: terraform
+    versions: ["1.1.6"]
+    global: "1.1.6"
+  - name: tilt
+    versions: ["0.25.1"]
+    global: "0.25.1"
+  - name: trivy
+    versions: ["0.23.0"]
+    global: "0.23.0"
 
 composer_packages: []
   # - name: drush
@@ -61,13 +98,13 @@ gem_packages: []
 npm_packages:
   - name: webpack
     state: present
-    version: "v5.64.1"
+    version: "5.69.1"
   - name: webpack-cli
     state: present
-    version: "v4.9.1"
+    version: "4.9.2"
   - name: expo-cli
     state: present
-    version: "4.13.0"
+    version: "5.2.0"
   - name: yarn
     state: present
     version: "1.22.17"
@@ -77,17 +114,13 @@ pip_packages: []
   #   state: present # present/absent/latest, default: present
   #   version: "0.16.3" # default: N/A
 
-gnome_version: "41"
-gnome_extensions_path: /usr/share/gnome-shell/extensions
-gnome_extensions_patch_enable: false
-
 # Glob pattern to ansible task files to run after all other tasks are finished.
 post_provision_tasks: []
 
 # Glob pattern to ansible task files to run after all other tasks are finished.
-post_provision_cmds:
-  - cmd: "./install.sh"
-    dir: "{{ lookup('env','HOME') }}/Projects/powerline-fonts"
+post_provision_cmds: []
+#   - cmd: "./install.sh"
+#     dir: "{{ lookup('env','HOME') }}/Projects/powerline-fonts"
 
 # manual_installations:
 # - Browser extensions (1PasswordX, jsonviewer)

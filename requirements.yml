@@ -1,9 +1,13 @@
 ---
 roles:
-  - geerlingguy.dotfiles
   - luizgavalda.aur
+  - geerlingguy.dotfiles
 
 collections:
   - name: community.general
     version: 4.0.1
+    source: https://galaxy.ansible.com
+
+  - name: geerlingguy.mac
+    version: 1.4.0
     source: https://galaxy.ansible.com

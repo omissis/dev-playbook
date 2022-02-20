@@ -1,19 +1,11 @@
 ---
-- hosts: all
+- hosts: localhost
   connection: local
-  become: yes
-
-  roles:
-    - role: luizgavalda.aur
-      when: ansible_os_family == "Archlinux"
-      tags: ["arch"]
-    - role: geerlingguy.dotfiles
-      tags: ["arch", "debian"]
 
   pre_tasks:
     - name: Include common variables
       include_vars: vars/common.yml
-      tags: ["arch", "debian"]
+      tags: ["arch", "debian", "macos"]
 
     - name: Include Debian-related variables
       include_vars: vars/debian.yml
@@ -25,18 +17,44 @@
       when: ansible_os_family == "Archlinux"
       tags: ["arch"]
 
+    - name: include Gnome-related variables
+      include_vars: vars/gnome.yml
+      when: ansible_os_family == "Archlinux" or ansible_os_family == "Debian"
+      tags: ["arch", "debian"]
+
+    - name: include Macos-related variables
+      include_vars: vars/macos.yml
+      when: ansible_os_family == "Darwin"
+      tags: ["macos"]
+
     - name: include secret variables
       include_vars: vars/secrets.yml
-      tags: ["arch", "debian"]
+      tags: ["arch", "debian", "macos"]
+
+  roles:
+    - role: luizgavalda.aur
+      when: ansible_os_family == "Archlinux"
+      tags: ["arch"]
+    # - role: geerlingguy.mac.homebrew
+    #   when: ansible_os_family == "Darwin"
+    #   tags: ["macos"]
+    # - role: geerlingguy.mac.mas
+    #   when: ansible_os_family == "Darwin"
+    #   tags: ["macos"]
+    # - role: geerlingguy.mac.dock
+    #   when: ansible_os_family == "Darwin"
+    #   tags: ["macos"]
+    # - role: geerlingguy.dotfiles
+    #   tags: ["arch", "debian", "macos"]
 
   tasks:
     - name: Setup gitconfig
       include_tasks: tasks/core/setup-gitconfig.yml
-      tags: ["arch", "debian"]
+      tags: ["arch", "debian", "macos"]
 
     - name: Make sure ansible is set for execution
       include_tasks: tasks/core/setup-ansible.yml
-      tags: ["arch", "debian"]
+      tags: ["arch", "debian", "macos"]
 
     - name: Install debian packages
       include_tasks: tasks/core/setup-debian-pkgs.yml
@@ -48,24 +66,25 @@
       when: ansible_os_family == "Archlinux"
       tags: ["arch"]
 
-    - name: Install extra packages
-      include_tasks: tasks/core/setup-extra-pkgs.yml
-      tags: ["arch", "debian"]
-
     - name: Setup asdf
       include_tasks: tasks/core/setup-asdf.yml
-      tags: ["arch", "debian"]
+      tags: ["arch", "debian", "macos"]
 
     - name: Setup asdf packages
       include_tasks: tasks/core/setup-asdf-pkgs.yml
-      tags: ["arch", "debian"]
+      tags: ["arch", "debian", "macos"]
 
     - name: Setup direnv
       include_tasks: tasks/core/setup-direnv.yml
-      tags: ["arch", "debian"]
+      tags: ["arch", "debian", "macos"]
+  
+    - name: Install extra packages
+      include_tasks: tasks/core/setup-extra-pkgs.yml
+      tags: ["arch", "debian", "macos"]
 
     - name: Patch Gnome extensions
       include_tasks: tasks/core/patch-gnome-extensions.yml
+      when: ansible_os_family == "Archlinux" or ansible_os_family == "Debian"
       tags: ["arch", "debian"]
 
     - name: Run configured post-provision ansible task files.
@@ -81,4 +100,4 @@
         chdir: "{{ item.dir }}"
       become: "{{ item.become | default('no') }}"
       with_items: "{{ post_provision_cmds }}"
-      tags: ["arch", "debian"]
+      tags: ["arch", "debian", "macos"]

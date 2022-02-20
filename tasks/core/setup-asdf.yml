@@ -35,7 +35,7 @@
   lineinfile:
     path: "{{ zshrc.stat.path }}"
     regexp: '\/[.]asdf\/asdf[.]sh$'
-    line: ". {{ lookup('env','HOME') }}/.asdf/asdf.sh"
+    line: ". ~/.asdf/asdf.sh"
   when: zshrc.stat.exists
 
 - name: Configure direnv hook in .zshrc

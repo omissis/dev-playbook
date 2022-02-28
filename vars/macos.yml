@@ -18,6 +18,7 @@ homebrew_installed_packages:
   - fzf
   - gh
   - git
+  - git-crypt
   - git-quick-stats
   - gnupg2
   - htop
@@ -86,6 +87,7 @@ homebrew_cask_apps:
   - miro
   - mongodb-compass
   - mysqlworkbench
+  - notion
   - postman
   - rocket
   - skype

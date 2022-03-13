@@ -69,12 +69,21 @@ asdf_plugins:
   - name: krew
     versions: ["0.4.3"]
     global: "0.4.3"
+  - name: kubectl
+    versions: ["1.23.3"]
+    global: "1.23.3"
+  - name: kubectx
+    versions: ["0.9.4"]
+    global: "0.9.4"
   - name: kustomize
     versions: ["4.5.2"]
     global: "4.5.2"
   - name: nodejs
     versions: ["16.14.0"]
     global: "16.14.0"
+  - name: stern
+    versions: ["1.21.0"]
+    global: "1.21.0"
   - name: terraform
     versions: ["1.1.6"]
     global: "1.1.6"

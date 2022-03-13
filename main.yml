@@ -31,21 +31,26 @@
       include_vars: vars/secrets.yml
       tags: ["arch", "debian", "macos"]
 
+    - name: Include playbook customizations
+      include_vars: "{{ item }}"
+      with_fileglob:
+        - "{{ playbook_dir }}/config.yml"
+
   roles:
     - role: luizgavalda.aur
       when: ansible_os_family == "Archlinux"
       tags: ["arch"]
-    # - role: geerlingguy.mac.homebrew
-    #   when: ansible_os_family == "Darwin"
-    #   tags: ["macos"]
-    # - role: geerlingguy.mac.mas
-    #   when: ansible_os_family == "Darwin"
-    #   tags: ["macos"]
-    # - role: geerlingguy.mac.dock
-    #   when: ansible_os_family == "Darwin"
-    #   tags: ["macos"]
-    # - role: geerlingguy.dotfiles
-    #   tags: ["arch", "debian", "macos"]
+    - role: geerlingguy.mac.homebrew
+      when: ansible_os_family == "Darwin"
+      tags: ["macos"]
+    - role: geerlingguy.mac.mas
+      when: ansible_os_family == "Darwin"
+      tags: ["macos"]
+    - role: geerlingguy.mac.dock
+      when: ansible_os_family == "Darwin"
+      tags: ["macos"]
+    - role: geerlingguy.dotfiles
+      tags: ["arch", "debian", "macos"]
 
   tasks:
     - name: Setup gitconfig
@@ -77,7 +82,7 @@
     - name: Setup direnv
       include_tasks: tasks/core/setup-direnv.yml
       tags: ["arch", "debian", "macos"]
-  
+
     - name: Install extra packages
       include_tasks: tasks/core/setup-extra-pkgs.yml
       tags: ["arch", "debian", "macos"]

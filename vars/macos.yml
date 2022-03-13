@@ -9,6 +9,7 @@ homebrew_installed_packages:
   - bash
   - bash-completion
   - bat
+  - bfg
   - composer
   - coreutils
   - ctop
@@ -24,8 +25,6 @@ homebrew_installed_packages:
   - htop
   - jq
   - k9s
-  - kubectl # TODO: move to asdf
-  - kubectx # TODO: move to asdf
   - mas
   - mkcert
   - nmap
@@ -37,7 +36,6 @@ homebrew_installed_packages:
   - readline
   - shellcheck
   - ssh-copy-id
-  - stern # TODO: move to asdf
   - termshark
   - tflint
   - tig
@@ -81,7 +79,7 @@ homebrew_cask_apps:
   - homebrew/cask-versions/firefox-developer-edition
   - iterm2
   - jetbrains-toolbox
-  - kaleidoscope
+  - kaleidoscope2
   # - keybase # not supported on M1
   - kindle
   - miro
@@ -94,6 +92,7 @@ homebrew_cask_apps:
   - slack
   - spotify
   - steam
+  - sublime-merge
   - sublime-text
   - telegram
   - the-unarchiver
@@ -153,60 +152,72 @@ dockitems_persist:
   - name: Firefox Developer Edition
     path: "/Applications/Firefox Developer Edition.app/"
     pos: 3
+  - name: Spark
+    path: "/Applications/Spark.app/"
+    pos: 4
+  - name: Cron
+    path: "/Applications/Cron.app/"
+    pos: 5
   - name: TextEdit
     path: "/System/Applications/TextEdit.app/"
-    pos: 4
+    pos: 6
   - name: Sublime Text
     path: "/Applications/Sublime Text.app/"
-    pos: 5
+    pos: 7
   - name: Visual Studio Code
     path: "/Applications/Visual Studio Code.app/"
-    pos: 6
+    pos: 8
   - name: Goland
     path: "/Applications/Goland.app/"
-    pos: 7
+    pos: 9
   - name: Xcode
     path: "/Applications/Xcode.app/"
-    pos: 8
+    pos: 10
   - name: MongoDB Compass
     path: "/Applications/MongoDB Compass.app/"
-    pos: 9
+    pos: 11
   - name: Slack
     path: "/Applications/Slack.app/"
-    pos: 10
+    pos: 12
   - name: Whatsapp
     path: "/Applications/Whatsapp.app/"
-    pos: 11
+    pos: 13
   - name: Telegram
     path: "/Applications/Telegram.app/"
-    pos: 12
+    pos: 14
   - name: Skype
     path: "/Applications/Skype.app/"
-    pos: 13
+    pos: 15
   - name: Spotify
     path: "/Applications/Spotify.app/"
-    pos: 14
-  - name: Calculator
-    path: "/System/Applications/Calculator.app/"
-    pos: 15
+    pos: 16
   - name: Terminal
     path: "/System/Applications/Utilities/Terminal.app/"
-    pos: 16
+    pos: 17
   - name: iTerm2
     path: "/Applications/iTerm.app/"
-    pos: 17
+    pos: 18
   - name: Alacritty
     path: "/Applications/Alacritty.app/"
-    pos: 18
+    pos: 19
   - name: Warp
     path: "/Applications/Warp.app/"
-    pos: 19
+    pos: 20
+  - name: Notes
+    path: "/Applications/Notes.app/"
+    pos: 21
+  - name: "Microsoft To Do"
+    path: "/Applications/Microsoft To Do.app/"
+    pos: 22
+  - name: "System Preferences"
+    path: "/Applications/System Preferences.app/"
+    pos: 23
   - name: Activity Monitor
     path: "/System/Applications/Utilities/Activity Monitor.app/"
-    pos: 20
+    pos: 24
   - name: App Store
     path: "/System/Applications/App Store.app/"
-    pos: 21
+    pos: 25
 
 # Misc --------
 

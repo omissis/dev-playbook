@@ -10,6 +10,7 @@ homebrew_installed_packages:
   - bash-completion
   - bat
   - bfg
+  - cocoapods
   - composer
   - coreutils
   - ctop
@@ -67,7 +68,6 @@ homebrew_cask_apps:
   - bettertouchtool
   - boop
   - cleanmymac
-  - cocoapods
   - discord
   - docker-edge
   - fig

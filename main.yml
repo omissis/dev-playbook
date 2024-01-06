@@ -71,6 +71,10 @@
       when: ansible_os_family == "Archlinux"
       tags: ["arch"]
 
+    - name: Install extra packages
+      include_tasks: tasks/core/setup-extra-pkgs.yml
+      tags: ["arch", "debian", "macos"]
+
     - name: Setup asdf
       include_tasks: tasks/core/setup-asdf.yml
       tags: ["arch", "debian", "macos"]
@@ -81,10 +85,6 @@
 
     - name: Setup direnv
       include_tasks: tasks/core/setup-direnv.yml
-      tags: ["arch", "debian", "macos"]
-
-    - name: Install extra packages
-      include_tasks: tasks/core/setup-extra-pkgs.yml
       tags: ["arch", "debian", "macos"]
 
     - name: Patch Gnome extensions

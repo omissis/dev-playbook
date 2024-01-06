@@ -1,5 +1,6 @@
 ---
 - name: Install git packages.
+  become: "{{ item.become | default('false') }}"
   git:
     repo: "{{ item.repo }}"
     dest: "{{ item.dest }}"

@@ -30,67 +30,27 @@ zshrc_path: "{{ lookup('env','HOME') }}/.zshrc"
 git_packages:
   - repo: https://github.com/unixorn/git-extra-commands.git
     dest: "{{ zsh_location }}/plugins/git-extra-commands"
+    become: true
   - repo: https://github.com/zsh-users/zsh-syntax-highlighting.git
     dest: "{{ zsh_location }}/plugins/zsh-syntax-highlighting"
+    become: true
   - repo: https://github.com/zsh-users/zsh-history-substring-search.git
     dest: "{{ zsh_location }}/plugins/zsh-history-substring-search"
+    become: true
   - repo: https://github.com/zsh-users/zsh-autosuggestions.git
     dest: "{{ zsh_location }}/plugins/zsh-autosuggestions"
+    become: true
   - repo: https://github.com/powerline/fonts.git
     dest: "{{ lookup('env','HOME') }}/Projects/powerline-fonts"
+    become: false
 
-direnv_version: 2.30.3
+direnv_version: 2.33.0
 asdf_bin: "{{ lookup('env','HOME') }}/.asdf/bin/asdf"
 
 asdf_plugins:
   - name: direnv
     versions: ["{{ direnv_version }}"]
     global: "{{ direnv_version }}"
-  - name: ctlptl
-    versions: ["0.7.5"]
-    global: "0.7.5"
-  - name: golang
-    versions: ["1.17.7"]
-    global: "1.17.7"
-  - name: gomigrate
-    versions: ["4.15.1"]
-    global: "4.15.1"
-  - name: helm
-    versions: ["3.8.0"]
-    global: "3.8.0"
-  - name: k9s
-    versions: ["0.25.18"]
-    global: "0.25.18"
-  - name: kind
-    versions: ["0.11.1"]
-    global: "0.11.1"
-  - name: krew
-    versions: ["0.4.3"]
-    global: "0.4.3"
-  - name: kubectl
-    versions: ["1.23.3"]
-    global: "1.23.3"
-  - name: kubectx
-    versions: ["0.9.4"]
-    global: "0.9.4"
-  - name: kustomize
-    versions: ["4.5.2"]
-    global: "4.5.2"
-  - name: nodejs
-    versions: ["16.14.0"]
-    global: "16.14.0"
-  - name: stern
-    versions: ["1.21.0"]
-    global: "1.21.0"
-  - name: terraform
-    versions: ["1.1.6"]
-    global: "1.1.6"
-  - name: tilt
-    versions: ["0.25.1"]
-    global: "0.25.1"
-  - name: trivy
-    versions: ["0.23.0"]
-    global: "0.23.0"
 
 composer_packages: []
   # - name: drush
@@ -102,19 +62,10 @@ gem_packages: []
   #   state: present # present/absent/latest, default: present
   #   version: "~> 1.15.1" # default: N/A
 
-npm_packages:
-  - name: webpack
-    state: present
-    version: "5.69.1"
-  - name: webpack-cli
-    state: present
-    version: "4.9.2"
-  - name: expo-cli
-    state: present
-    version: "5.2.0"
-  - name: yarn
-    state: present
-    version: "1.22.17"
+npm_packages: []
+  # - name: webpack
+  #   state: present
+  #   version: "5.69.1"
 
 pip_packages: []
   # - name: mkdocs

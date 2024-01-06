@@ -1,6 +1,5 @@
 yay_packages:
   ## CLI Applications
-  - 1password-cli
   - autoconf
   - aws-cli
   - bash-completion
@@ -48,6 +47,7 @@ yay_packages:
   - mongodb-compass
   - mysql-workbench
   - postman-bin
+  - signal-desktop
   - skypeforlinux-stable-bin
   - slack-desktop
   - spotify
@@ -63,12 +63,12 @@ yay_packages:
   - gnome-shell-extension-bluetooth-quick-connect
   - gnome-shell-extension-clipboard-indicator
   - gnome-shell-extension-dash-to-dock
-  - gnome-shell-extension-desktop-icons-ng
-  - gnome-shell-extension-docker-integration-git
+  # - gnome-shell-extension-desktop-icons-ng # BROKEN
+  # - gnome-shell-extension-docker-integration-git # BROKEN
   - gnome-shell-extension-gnome-ui-tune-git
-  - gnome-shell-extension-gtile
-  - gnome-shell-extension-notification-center-git
-  - gnome-shell-extension-sound-output-device-chooser
+  # - gnome-shell-extension-gtile
+  # - gnome-shell-extension-notification-center-git # BROKEN
+  # - gnome-shell-extension-sound-output-device-chooser # BROKEN
   - gnome-shell-extension-tray-icons-reloaded
   # Fonts
   - noto-fonts-cjk

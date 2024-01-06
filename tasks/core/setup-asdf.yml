@@ -69,3 +69,10 @@
     regexp: '^direnv'
     line: 'direnv {{ direnv_version }}'
     create: yes
+
+- name: "install asdf"
+  become: false
+  git:
+    repo: "https://github.com/asdf-vm/asdf.git"
+    dest: "{{ lookup('env', 'HOME') }}/.asdf"
+    version: "HEAD"

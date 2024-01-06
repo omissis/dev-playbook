@@ -38,8 +38,6 @@ git_packages:
     dest: "{{ zsh_location }}/plugins/zsh-autosuggestions"
   - repo: https://github.com/powerline/fonts.git
     dest: "{{ lookup('env','HOME') }}/Projects/powerline-fonts"
-  - repo: https://github.com/asdf-vm/asdf.git
-    dest: "{{ lookup('env', 'HOME') }}/.asdf"
 
 direnv_version: 2.30.3
 asdf_bin: "{{ lookup('env','HOME') }}/.asdf/bin/asdf"

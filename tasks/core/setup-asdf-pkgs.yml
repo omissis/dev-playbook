@@ -27,10 +27,10 @@
 
 - name: "set global app versions"
   become: false
-  command: "bash -lc '{{ asdf_bin }} global {{ item.name }} {{ item.global | default(item.versions | difference(item.delete_versions|default([])) | sort | first) }}'"
+  command: "bash -lc '{{ asdf_bin }} global {{ item.name }} {{ item.global }}'"
   args:
     chdir: "{{ lookup('env','HOME') }}"
-  when: item.versions is defined
+  when: item.global is defined
   with_items: "{{ asdf_plugins }}"
 
 - name: "reshim packages"
@@ -38,6 +38,6 @@
   command: "bash -lc '{{ asdf_bin }} reshim {{ item.name }}'"
   args:
     chdir: "{{ lookup('env','HOME') }}"
+  when: item.global is defined
   with_items: "{{ asdf_plugins }}"
-  when: asdf_plugins|length > 0
 

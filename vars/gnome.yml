@@ -1,3 +1,3 @@
-gnome_version: "41"
+gnome_version: "45"
 gnome_extensions_path: /usr/share/gnome-shell/extensions
 gnome_extensions_patch_enable: false

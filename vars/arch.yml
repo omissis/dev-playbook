@@ -5,7 +5,6 @@ yay_packages:
   - bash-completion
   - ctop
   - docker
-  - docker-compose
   - fzf
   - github-cli
   - gnupg
@@ -28,9 +27,6 @@ yay_packages:
   - tmux-plugin-manager
   - vim
   - wireshark-cli
-  - xdg-desktop-portal
-  - xdg-desktop-portal-gnome
-  - xdg-desktop-portal-gtk
   - xsel
   - yq
   - zsh
@@ -40,10 +36,7 @@ yay_packages:
   ## GUI Applications
   - 1password
   - chromium
-  - dconf-editor
-  - font-manager
   - gimp
-  - guake
   - mongodb-compass
   - mysql-workbench
   - postman-bin
@@ -59,6 +52,20 @@ yay_packages:
   - vlc
   - whatsdesk-bin
   - wireshark-qt
+  # Fonts
+  - noto-fonts-cjk
+  - noto-fonts-emoji
+  - noto-fonts-extra
+  - ttf-jetbrains-mono
+
+yay_gnome_packages:
+  # Gnome Apps
+  - dconf-editor
+  - font-manager
+  - guake
+  - xdg-desktop-portal
+  - xdg-desktop-portal-gnome
+  - xdg-desktop-portal-gtk
   # Gnome Extensions
   - gnome-shell-extension-bluetooth-quick-connect
   - gnome-shell-extension-clipboard-indicator
@@ -70,10 +77,7 @@ yay_packages:
   # - gnome-shell-extension-notification-center-git # BROKEN
   # - gnome-shell-extension-sound-output-device-chooser # BROKEN
   - gnome-shell-extension-tray-icons-reloaded
-  # Fonts
-  - noto-fonts-cjk
-  - noto-fonts-emoji
-  - noto-fonts-extra
-  - ttf-jetbrains-mono
+
+yay_kde_packages: []
 
 zsh_location: /usr/share/oh-my-zsh

@@ -43,6 +43,18 @@ git_packages:
   - repo: https://github.com/powerline/fonts.git
     dest: "{{ lookup('env','HOME') }}/Projects/powerline-fonts"
     become: false
+  - repo: https://github.com/vinceliuice/MacSonoma-kde.git
+    dest: "{{ lookup('env','HOME') }}/Projects/MacSonoma-kde"
+    become: false
+  - repo: https://github.com/vinceliuice/WhiteSur-icon-theme.git
+    dest: "{{ lookup('env','HOME') }}/Projects/WhiteSur-icon-theme"
+    become: false
+  - repo: https://github.com/vinceliuice/WhiteSur-cursors.git
+    dest: "{{ lookup('env','HOME') }}/Projects/WhiteSur-cursors"
+    become: false
+  - repo: https://github.com/RedBearAK/toshy.git
+    dest: "{{ lookup('env','HOME') }}/Projects/toshy"
+    become: false
 
 direnv_version: 2.33.0
 asdf_bin: "{{ lookup('env','HOME') }}/.asdf/bin/asdf"

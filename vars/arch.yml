@@ -1,6 +1,7 @@
 yay_packages:
   ## CLI Applications
   - autoconf
+  - autojump
   - aws-cli
   - bash-completion
   - ctop
@@ -78,6 +79,9 @@ yay_gnome_packages:
   # - gnome-shell-extension-sound-output-device-chooser # BROKEN
   - gnome-shell-extension-tray-icons-reloaded
 
-yay_kde_packages: []
+yay_kde_packages:
+  - latte-dock
+  - partitionmanager
+  - yakuake
 
 zsh_location: /usr/share/oh-my-zsh

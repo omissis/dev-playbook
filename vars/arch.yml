@@ -38,8 +38,9 @@ yay_packages:
   - 1password
   - chromium
   - gimp
-  - mongodb-compass
+  # - mongodb-compass
   - mysql-workbench
+  - obsidian
   - postman-bin
   - signal-desktop
   - skypeforlinux-stable-bin
@@ -59,25 +60,25 @@ yay_packages:
   - noto-fonts-extra
   - ttf-jetbrains-mono
 
-yay_gnome_packages:
-  # Gnome Apps
-  - dconf-editor
-  - font-manager
-  - guake
-  - xdg-desktop-portal
-  - xdg-desktop-portal-gnome
-  - xdg-desktop-portal-gtk
-  # Gnome Extensions
-  - gnome-shell-extension-bluetooth-quick-connect
-  - gnome-shell-extension-clipboard-indicator
-  - gnome-shell-extension-dash-to-dock
+yay_gnome_packages: []
+  # # Gnome Apps
+  # - dconf-editor
+  # - font-manager
+  # - guake
+  # - xdg-desktop-portal
+  # - xdg-desktop-portal-gnome
+  # - xdg-desktop-portal-gtk
+  # # Gnome Extensions
+  # - gnome-shell-extension-bluetooth-quick-connect
+  # - gnome-shell-extension-clipboard-indicator
+  # - gnome-shell-extension-dash-to-dock
   # - gnome-shell-extension-desktop-icons-ng # BROKEN
   # - gnome-shell-extension-docker-integration-git # BROKEN
-  - gnome-shell-extension-gnome-ui-tune-git
+  # - gnome-shell-extension-gnome-ui-tune-git
   # - gnome-shell-extension-gtile
   # - gnome-shell-extension-notification-center-git # BROKEN
   # - gnome-shell-extension-sound-output-device-chooser # BROKEN
-  - gnome-shell-extension-tray-icons-reloaded
+  # - gnome-shell-extension-tray-icons-reloaded
 
 yay_kde_packages:
   - latte-dock

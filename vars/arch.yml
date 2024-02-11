@@ -49,6 +49,7 @@ yay_packages:
   - sublime-merge
   - sublime-text-4
   - telegram-desktop
+  - ulauncher
   - virtualbox
   - visual-studio-code-bin
   - vlc

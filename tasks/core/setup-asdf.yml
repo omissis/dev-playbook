@@ -46,14 +46,6 @@
     line: 'eval "$(asdf exec direnv hook zsh)"'
   when: zshrc.stat.exists
 
-- name: Configure direnv hook in direnvrc config file
-  become: false
-  lineinfile:
-    path: "{{ lookup('env','HOME') }}/.config/direnv/direnvrc"
-    regexp: '^source\ \"\$\(asdf\ direnv\ hook\ asdf\)\"$'
-    line: 'source "$(asdf direnv hook asdf)"'
-    create: yes
-
 - name: Configure asdf in .envrc
   become: false
   lineinfile:
